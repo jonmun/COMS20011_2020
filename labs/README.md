@@ -6,14 +6,18 @@ There are two basic options: remotely logging in to a lab machine or locally ins
 
 ## Remote access to MVB machines
 
-* Option 1 - First, follow these instructions to set up the [VPN](https://uob.sharepoint.com/sites/itservices/SitePages/vpn-connect.aspx). Then, follow these guidelines provided by IT Services to set up a [Linux Remote Desktop](https://uob.sharepoint.com/sites/itservices/SitePages/fits-engineering-linux-x2go.aspx)
+#### Option 1 (Linux Remote Desktop; Windows/Linux)
+First, follow these instructions to set up the [VPN](https://uob.sharepoint.com/sites/itservices/SitePages/vpn-connect.aspx). Then, follow these guidelines provided by IT Services to set up a [Linux Remote Desktop](https://uob.sharepoint.com/sites/itservices/SitePages/fits-engineering-linux-x2go.aspx).  Should work on Mac, but apparently the required XQuartz software doesn't work well.  This is supported by IT, so any issues with this software can be sent to service-desk@bristol.ac.uk.
 
-* Option 2 (advanced) - If you are running an X server already (i.e. because you're running Linux locally), then open a shell on your machine, and type this command: 
+#### Option 2 (X Remote Desktop; Linux)
+If you are running an X server already (i.e. because you're running Linux locally), then open a shell on your machine, and type this command: 
 ```
 ssh -X -J youruserid@seis.bris.ac.uk youruserid@rd-mvb-linuxlab.bristol.ac.uk
 ```
-## SSH Port forwarding for Option 2
-This option will remove latency issues from the graphical interface of option 2.
+This method will not work on Windows Linux Subsystem (WSL), you can use Option 3 in WSL, or Option 1 in Windows, instead.
+
+#### Option 3 (SSH Port forwarding; WSL/Linux/Mac)
+If you can get it working, this method will give the lowest latency.
 
 This allows you to open Jupyter Notebook in a browser on your local machine while still running it on a lab machine.
 
